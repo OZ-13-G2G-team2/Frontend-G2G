@@ -1,0 +1,97 @@
+// 공통 버튼 스타일
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* ===== 사이즈 (snake_case 규칙 준수) ===== */
+.size_sm {
+  width: 160px;
+  height: 40px;
+  font-size: 14px;
+}
+
+.size_md {
+  width: 280px;
+  height: 56px;
+  font-size: 16px;
+}
+
+.size_lg {
+  width: 360px;
+  height: 64px;
+  font-size: 18px;
+}
+
+/* ===== variant 스타일 ===== */
+.variant_filled {
+  background-color: #4c6a36;
+  color: #fff;
+  border-color: #4c6a36;
+
+  &:hover:not(:disabled) {
+    background-color: #3e5b2d;
+  }
+
+  &:active:not(:disabled) {
+    background-color: #324823;
+  }
+}
+
+.variant_outline {
+  background-color: #fff;
+  color: #4c6a36;
+  border: 1px solid #4c6a36;
+
+  &:hover:not(:disabled) {
+    background-color: #f8f8f8;
+  }
+
+  &:active:not(:disabled) {
+    background-color: #ebebeb;
+  }
+}
+
+.variant_text {
+  background-color: transparent;
+  color: #4c6a36;
+  border: none;
+
+  &:hover:not(:disabled) {
+    text-decoration: underline;
+  }
+
+  &:active:not(:disabled) {
+    color: #3e5b2d;
+  }
+}
+
+/* ===== full width 옵션 ===== */
+.full_width {
+  width: 100%;
+}
+
+/* ===== disabled 상태 ===== */
+.disabled {
+  background-color: #f5f5f5;
+  border-color: #e0e0e0;
+  color: #bcbcbc;
+}
+
+/* ===== icon ===== */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
