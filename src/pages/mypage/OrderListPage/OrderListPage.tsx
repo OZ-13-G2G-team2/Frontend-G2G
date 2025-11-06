@@ -57,7 +57,7 @@ const OrderListPage = () => {
     <>
       <Header />
       <main className={styles.container}>
-        <SideNavigation userName='이슬' /> 
+        <SideNavigation userName='이슬비' /> 
         <section className={styles.content}>
           <h2 className={styles.title}>주문 내역</h2>
           <ul className={styles.orderList}>
