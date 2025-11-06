@@ -1,29 +1,99 @@
 @use '@/foundations/mixins' as *;
-@use '@/foundations/variables' as *;
+@use '@/foundations/variables' as *; // ✅ 변수 파일 임포트 추가
 
 .container {
   @include flex(row, 40px);
-  max-width: $container-width;
+  max-width: $container-width; // 변수 사용
   margin: 40px auto;
   padding-bottom: 60px;
+  background-color: var(--color-gray-100); // ✅ 피그마 배경색 (회색)
+  min-height: calc(100vh - $header-height - $footer-height); // ✅ 최소 높이 설정
 }
 
 .content {
   flex: 1;
-  h2 {
+  background-color: var(--color-white); // ✅ 이미지처럼 콘텐츠 영역은 흰색 배경
+  padding: 30px; // ✅ 패딩 추가
+  border-radius: 8px; // ✅ 모서리 둥글게
+
+  .title {
     font-size: $font-xl;
     font-weight: $font-semibold;
     margin-bottom: 24px;
+    color: var(--color-gray-900); // ✅ 폰트 색상
   }
 }
 
-.grid {
-  @include flex-grid(20px, 24px);
+.orderList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
+
+.orderItem {
+  border-bottom: 1px solid var(--color-gray-200); // ✅ 이미지 참고: 아이템 하단 경계선
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column; // ✅ 상태, 상세, 버튼 영역 분리를 위해 column으로 설정
+  gap: 15px; // ✅ 섹션 간 간격
+
+  &:first-child {
+    padding-top: 0; // 첫 번째 항목은 상단 패딩 없음
+  }
+  &:last-child {
+    border-bottom: none; // 마지막 항목은 하단 경계선 없음
+    padding-bottom: 0;
+  }
+}
+
+.orderStatus {
+  font-size: $font-md; // ✅ 이미지 참고: '결제완료' 등 상태 폰트 크기
+  font-weight: $font-medium;
+  color: var(--color-gray-900); // ✅ 폰트 색상
+  margin-bottom: 10px; // ✅ 하단 여백 추가
+}
+
+.itemDetails {
+  display: flex;
+  align-items: center; // ✅ 이미지와 텍스트 정렬
+  gap: 20px;
+
+  .image {
+    width: 80px; // ✅ 이미지 크기 조정
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px; // ✅ 이미지 모서리 둥글게
+    border: 1px solid var(--color-gray-200); // ✅ 이미지 테두리
+  }
+
+  .info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; // ✅ 텍스트 라인 간 간격
+
+    .name {
+      font-size: $font-base;
+      color: var(--color-gray-800);
+      font-weight: $font-medium;
+    }
+    .price {
+      font-size: $font-md;
+      color: var(--color-gray-900);
+      font-weight: $font-semibold;
+    }
+    .quantityDate { // ✅ 추가된 수량/날짜 텍스트 스타일
+      font-size: $font-sm;
+      color: var(--color-gray-600);
+    }
+  }
+}
+
 
 .actions {
   display: flex;
   gap: 10px;
+  justify-content: flex-end; // ✅ 버튼을 오른쪽으로 배치
 }
 
 // 💡 페이지네이션 컴포넌트를 중앙에 배치하기 위한 스타일 추가
@@ -31,4 +101,11 @@
   display: flex;
   justify-content: center;
   margin-top: 30px;
+}
+
+.noOrders {
+  text-align: center;
+  color: var(--color-gray-600);
+  padding: 50px 0;
+  font-size: $font-lg;
 }
