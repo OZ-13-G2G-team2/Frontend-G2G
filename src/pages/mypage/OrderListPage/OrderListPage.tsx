@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'; // URL 쿼리를 읽기 위해 �
 import Header from '@shared/components/Header';
 import Footer from '@shared/components/Footer';
 import SideNavigation from '@shared/components/SideNavigation';
-import Button from '@/shared/components/button';
+import Button from '@shared/components/button/Button';
 import Pagination from '@shared/components/Page/PageNation'; 
 import styles from './OrderListPage.module.scss';
 import type { Product } from '@/types/product';
@@ -65,7 +65,19 @@ const OrderListPage = () => {
             {/* 💡 슬라이싱된 currentOrders 사용 */}
             {currentOrders.map((order) => ( 
               <li key={order.id} className={styles.orderItem}>
-                {/* ... (상품 정보 및 버튼 렌더링) */}
+                {/* ... (상품 정보 및 버튼 렌더링) */} 
+
+                {/* ✅ Button 컴포넌트 사용을 복구합니다. */}
+                <img src={order.img_url} alt={order.name} className={styles.image} />
+                <div className={styles.info}>
+                  <p className={styles.status}>{order.status}</p> 
+                  <p className={styles.name}>{order.name}</p>
+                  <p className={styles.price}>{order.price.toLocaleString()}원</p>
+                </div>
+                <div className={styles.actions}>
+                  <Button label="장바구니 담기" variant="outline" size="sm" /> 
+                  <Button label="바로 구매하기" variant="filled" size="sm" />
+                </div>
               </li>
             ))}
           </ul>
