@@ -109,3 +109,12 @@
   padding: 50px 0;
   font-size: $font-lg;
 }
+
+.noOrders, .loading {
+  text-align: center;
+  color: var(--color-gray-600);
+  padding: 50px 0;
+  font-size: $font-lg;
+  /* 💡 .orderList 내부에서 메시지가 전체 너비를 차지하도록 설정 */
+  /* 단, orderList가 flex/grid가 아니므로 단순 텍스트 중앙 정렬만 합니다. */
+}
