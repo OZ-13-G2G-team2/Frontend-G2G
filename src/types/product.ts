@@ -1,7 +1,7 @@
 export interface Product {
   id: number
   name: string
-  business_name: string
+  business_name?: string
   price: number
   discount_rate?: number
   final_price?: number
@@ -13,5 +13,4 @@ export interface Product {
   created_at?: string
   updated_at?: string
   status?: string
-  business_name?: string
 }
