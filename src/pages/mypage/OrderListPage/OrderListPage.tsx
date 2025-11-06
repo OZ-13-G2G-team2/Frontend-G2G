@@ -35,7 +35,7 @@ const ALL_ORDERS_DATA: Product[] = [
 const OrderListPage = () => {
   const [allOrders] = useState<Product[]>(ALL_ORDERS_DATA);
   const location = useLocation(); // URL 위치 정보 사용
-  const itemsPerPage = 4; // 페이지당 항목 수
+  const itemsPerPage = 5; // 페이지당 항목 수
 
   // 💡 URL 쿼리에서 현재 페이지 번호 가져오기
   const [currentPage, setCurrentPage] = useState(1);
