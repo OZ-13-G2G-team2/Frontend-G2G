@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Header from '@shared/components/Header';
 import Footer from '@shared/components/Footer';
 import SideNavigation from '@shared/components/SideNavigation';
-import Button from '@shared/components/Button';
-import Pagination from '@shared/components/Page'; // 💡 페이지네이션 컴포넌트 import
+import Button from '@/shared/components/button';
+import Pagination from '@shared/components/Page/PageNation'; // 💡 페이지네이션 컴포넌트 import
 import styles from './OrderListPage.module.scss';
 import type { Product } from '@/types/product';
 import chestnutImg from '@/assets/images/chestnut.jpg';

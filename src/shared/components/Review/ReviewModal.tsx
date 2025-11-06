@@ -1,7 +1,7 @@
 import '@/shared/components/Review/ReviewModal.scss'
 import recommendIcon from '@/assets/icons/recommend.svg'
 import recommendClickIcon from '@/assets/icons/recommend-click.svg'
-import Button from '@/shared/components/button/Button.tsx'
+import Button from '@/shared/components/button/Button'
 import { useState } from 'react'
 
 interface ModalProps {
