@@ -3,7 +3,7 @@ import Header from '@shared/components/Header';
 import Footer from '@shared/components/Footer';
 import SideNavigation from '@shared/components/SideNavigation';
 import Button from '@/shared/components/button';
-import Pagination from '@shared/components/Page/PageNation'; // 💡 페이지네이션 컴포넌트 import
+import Pagination from '@shared/components/Page/PageNation'; // ✅ 기존 PageNation 그대로 사용
 import styles from './OrderListPage.module.scss';
 import type { Product } from '@/types/product';
 import chestnutImg from '@/assets/images/chestnut.jpg';
@@ -17,7 +17,7 @@ import eggImg from '@/assets/images/egg.jpg';
 import spinachImg from '@/assets/images/spinach.jpg';
 import strawberryImg from '@/assets/images/strawberry.jpg';
 
-// 💡 임의의 더미 데이터 10개로 확장 (페이지네이션 테스트를 위해)
+// 💡 더미 데이터
 const ALL_ORDERS_DATA: Product[] = [ 
   { id: 1, name: '재협유기농 밤 3kg(5~8과)', price: 19710, img_url: chestnutImg, status: '결제완료' },
   { id: 2, name: '유기농 사과 5kg', price: 25000, img_url: appleImg, status: '배송준비중' },
@@ -32,26 +32,8 @@ const ALL_ORDERS_DATA: Product[] = [
 ];
 
 const OrderListPage = () => {
-  // 💡 orders를 allOrders로 변경하고 currentPage 상태 추가
   const [allOrders] = useState<Product[]>(ALL_ORDERS_DATA);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4; // 페이지당 4개 항목 표시
-
-  // 💡 페이지네이션 로직
-  const totalItems = allOrders.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentOrders = allOrders.slice(indexOfFirstItem, indexOfLastItem);
-
-  // 💡 페이지 변경 핸들러
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
-
-  // 기존 useEffect는 더미 데이터 설정 로직으로 인해 제거하거나 비워둠.
+  const itemsPerPage = 4; // ✅ 페이지당 항목 수 지정
 
   return (
     <>
@@ -60,9 +42,9 @@ const OrderListPage = () => {
         <SideNavigation userName='이슬비' /> 
         <section className={styles.content}>
           <h2 className={styles.title}>주문 내역</h2>
+
           <ul className={styles.orderList}>
-            {/* 💡 currentOrders를 사용 */}
-            {currentOrders.map((order) => ( 
+            {allOrders.map((order) => ( 
               <li key={order.id} className={styles.orderItem}>
                 <img src={order.img_url} alt={order.name} className={styles.image} />
                 <div className={styles.info}>
@@ -77,13 +59,13 @@ const OrderListPage = () => {
               </li>
             ))}
           </ul>
-          
-          {/* 💡 페이지네이션 컴포넌트 추가 및 props 전달 */}
+
+          {/* ✅ PageNation 컴포넌트에 맞게 수정 */}
           <div className={styles.paginationWrapper}> 
-            <Pagination
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={handlePageChange}
+            <Pagination 
+              totalItems={allOrders.length} 
+              itemCountPerPage={itemsPerPage} 
+              maxPageButtons={5} 
             />
           </div>
         </section>
