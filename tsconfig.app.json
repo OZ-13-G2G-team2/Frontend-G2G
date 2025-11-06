@@ -25,7 +25,8 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": "src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@shared/*": ["shared/*"] // @shared 경로 alias 등록
     }
   },
   "include": ["src"]
