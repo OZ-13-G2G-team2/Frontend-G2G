@@ -2,7 +2,10 @@
   "extends": "./tsconfig.app.json",
   "compilerOptions": {
     "baseUrl": "src",
-    "paths": { "@/*": ["*"] }
+    "paths": {
+      "@/*": ["*"],
+      "@shared/*": ["shared/*"] // @shared 경로 alias 등록
+    }
   },
   "include": ["src"]
 }
