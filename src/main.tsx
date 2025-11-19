@@ -8,12 +8,10 @@ import App from './App'
 
 // MSW 워커를 활성화하는 함수
 async function enableMocking() {
-  if (import.meta.env.MODE !== 'development') {
-    return
-  }
   const { worker } = await import('./mocks/browser')
   return worker.start({
-    onUnhandledRequest: 'bypass',
+    onUnhandledRequest: 'bypass', // 서버에 없는 요청은 그냥 통과
+    serviceWorker: { url: '/mockServiceWorker.js' },
   })
 }
 

@@ -18,9 +18,10 @@ function ProductReview({ item }: ProductReviewProps) {
     const fetchReviews = async () => {
       try {
         const response = await axios.get(API_PATHS.REVIEWS.GET_REVIEW_LIST)
-        setReviews(response.data)
+        setReviews(Array.isArray(response.data) ? response.data : [])
       } catch (err) {
         console.log(err)
+        setReviews([])
       }
     }
     fetchReviews()
@@ -35,17 +36,15 @@ function ProductReview({ item }: ProductReviewProps) {
       </div>
       <div className="review-list-box">
         {/* 임시 이미지. 추후 리뷰 api 구현되면 매핑으로 진행할 예정 (5개만 나오게) */}
-        {reviews
-          .filter((review) => review.images && review.images.length > 0) // 이미지가 있는 경우만
-          .slice(0, 5)
-          .map((review) => {
-            const firstImage = review.images![0] // 여기서는 존재가 보장됨
-            return (
+        {Array.isArray(reviews) &&
+          reviews
+            .filter((review) => review.images && review.images.length > 0)
+            .slice(0, 5)
+            .map((review) => (
               <div className="temporary-box" key={review.id}>
-                <img src={firstImage} alt="" className="temporary-img" />
+                <img src={review.images![0]} alt="" className="temporary-img" />
               </div>
-            )
-          })}
+            ))}
 
         <div className="temporary-box black" onClick={handleclick}>
           + 더보기
@@ -62,23 +61,24 @@ function ProductReview({ item }: ProductReviewProps) {
             <span>추천</span> */}
           </div>
           <div className="review-detail">
-            {reviews.map((review) => (
-              <div key={review.id} className="review-item">
-                <div className="review-user-name">{review.user}</div>
-                <div className="review-content">
-                  <p className="default-ment">{item.name}</p>
-                  {review.comment}
-                  {review.images?.[0] && (
-                    <img
-                      src={review.images[0]}
-                      alt={item.name}
-                      className="review-img"
-                    />
-                  )}
-                  <p className="review-date">{review.created_at}</p>
+            {Array.isArray(reviews) &&
+              reviews?.map?.((review) => (
+                <div key={review.id} className="review-item">
+                  <div className="review-user-name">{review.user}</div>
+                  <div className="review-content">
+                    <p className="default-ment">{item.name}</p>
+                    {review.comment}
+                    {review.images?.[0] && (
+                      <img
+                        src={review.images[0]}
+                        alt={item.name}
+                        className="review-img"
+                      />
+                    )}
+                    <p className="review-date">{review.created_at}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       )}

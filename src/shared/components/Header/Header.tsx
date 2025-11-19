@@ -163,7 +163,7 @@ const Header = () => {
               </div>
             )}
             <div className={cn('nav-right', { hidden: isCompact })}>
-              <Link to={ROUTE_PATHS.SIGNUP.SELLER}>입점신청</Link>
+              <Link to={ROUTE_PATHS.SIGNUP.SELLER_CERTIFICATION}>입점신청</Link>
             </div>
           </nav>
         </div>
