@@ -59,13 +59,17 @@
 
     .row-buttons {
       @include flex($gap: 8px);
+      
       .cart-button {
-        @include font($color: $color-subtext);
+        @include font(14px, $color: $color-subtext);
         border: 1px solid $color-subtext;
         height: 36px;
+        border-radius: 4px;
       }
       .buy-button {
+        font-size: 14px;
         height: 36px;
+        border-radius: 4px;
       }
     }
   }
