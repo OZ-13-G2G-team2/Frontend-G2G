@@ -1,38 +1,88 @@
-# 📁 프로젝트 디렉토리 구조 및 역할
+# G2G
+> 지역 생산자와 소비자를 바로 잇는 직거래 플랫폼
 
-본 프로젝트는 **FSD(Floder-by-Feature-Structure)** 를 기반으로 설계되었으며, 모든 파일과 폴더는 역할과 범위에 따라 구분됩니다.
-아래는 주요 폴더와 파일들의 역할 및 사용 기준을 정리한 문서입니다.
+## 메인, 검색 페이지
+여기에 이미지 넣을거
+## 상세페이지
+여기에 이미지 넣을거
+## 회원가입 및 로그인 페이지
+여기에 이미지 넣을거
+## 마이페이지(주문, 찜, 후기, 장바구니)
+여기에 이미지 넣을거
+## 시연 영상
 
-## 폴더구조
+## 배포 주소
+➡️ Production 배포 URL: https://frontend-g2g.vercel.app/
 
-📦 src
-├─ api           # 서버 통신 모듈
-├─ assets        # 이미지, 아이콘, 로고 등 정적 자산
-	├─ images
-	├─ icons
-	├─ fonts
-├─ routes        # 라우팅
-	├─ appRoutes
-├─ components    # UI 및 페이지 구성 컴포넌트
-	├─ signUp      # 페이지별로 컴포넌트 나누기
-	├─ signIn
-	├─ main        
-	├─ product
-	├─ mypage
-	├─ ...
-├─ constants     # 상수 정의 (API 경로, 디자인 색상 등)
-├─ shared        # 재사용가능한 리소스
-	├─ components  # 공용 컴포넌트(버튼, 모달 등) 
-├─ foundations   # 기본 스타일/설정 (버튼, 입력, zIndex)
-├─ hooks         # 커스텀 훅
-├─ mocks         # 테스트용 목 데이터
-├─ pages         # 라우팅 페이지 컴포넌트
-	├─ signUp
-	├─ signIn
-	├─ main
-	├─ product
-	├─ mypage
-	├─ ...
-├─ stores        # 상태 관리
-├─ types         # 타입 정의
-└─ utils         # 유틸리티 함수
+## 개발 서버 실행 방법
+
+**패키지 설치**
+
+```sh
+npm install
+```
+**실행**
+```sh
+npm run dev
+```
+
+## 아키텍처
+<img width="1280" height="720" alt="image" src="https://github.com/user-attachments/assets/4f1b52ed-4c3e-4b49-9ae0-d9a63048258a" />
+
+## 주제 및 배경 소개 
+
+## 팀원 소개
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center">
+        <a href="https://github.com/cks-wls">
+          <img src="https://avatars.githubusercontent.com/u/134291854?v=4" width="100" height="100"/><br/>
+          황찬진
+        </a>
+      </td>
+      <td align="center">
+        <a href="https://github.com/seulbi-dev">
+          <img src="https://avatars.githubusercontent.com/u/112475497?v=4" width="100" height="100"/><br/>
+          이슬비
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <th>FrontEnd</th>
+      <th>FrontEnd</th>
+    </tr>
+
+  </tbody>
+</table>
+
+## 기술 스택
+<table>
+  <tr>
+    <td align="center">언어 및 라이브러리</td>
+    <td>
+      <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge"/>
+    </td>
+  <tr>
+  <tr>
+    <td align="center">통신 클라이언트</td>
+    <td>
+      <img src="https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=fff&style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/tanstack%20query-FF4154?logo=reactquery&logoColor=fff&style=for-the-badge"/>
+    </td>
+  <tr>
+    <td align="center">API 모킹</td>
+    <td>
+      <img src="https://img.shields.io/badge/Mock_Service_Worker-FF6A33?style=for-the-badge&logo=mockserviceworker&logoColor=white"/>
+    </td>
+  </tr>
+    <td align="center">코드 컨벤션</td>
+    <td>
+      <img src="https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=fff&style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=fff&style=for-the-badge"/>
+      <img src="https://img.shields.io/badge/husky-F05032?logo=git&logoColor=fff&style=for-the-badge"/>
+    </td>
+  </tr>
+</table>
