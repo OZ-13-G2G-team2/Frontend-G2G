@@ -8,13 +8,14 @@ import PlusIcon from '@/assets/icons/plus.svg'
 import MinusIcon from '@/assets/icons/minus.svg'
 import { useUser } from '@/stores/userContext'
 import BackToLogin from '@/components/productDetail/backToLogin/BackToLogin'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 // import { getAccessToken } from '@/api/auth'
 // import { jwtDecode } from 'jwt-decode'
 // import type { UserJwtPayload } from '@/types/jwtPayload'
 import { cartAddApi } from '@/api/cartAddApi'
 // import { addWishListApi } from '@/api/wishListApi'
 import MoveToCart from '@/components/productDetail/moveToCart/MoveToCart'
+import { ROUTE_PATHS } from '@/constants/route'
 
 interface SummarizeDetailProps {
   item: Product
@@ -29,6 +30,7 @@ function SummarizeDetail({ item }: SummarizeDetailProps) {
   const [selectedExtraPrice, setSelectedExtraPrice] = useState<number>(0)
   const [isCartMove, setIsCartMove] = useState(false)
   const productId = Number(params.id)
+  const navigate = useNavigate()
   // const token = getAccessToken() ?? ''
   // const payload = jwtDecode<UserJwtPayload>(token)
   // const userId = Number(payload.user_id)
@@ -70,7 +72,7 @@ function SummarizeDetail({ item }: SummarizeDetailProps) {
     if (userType === 'GUEST') {
       setIsModalOpen(true)
     } else {
-      // 구매 추가 로직
+      navigate(ROUTE_PATHS.MYPAGE.ORDER_LIST)
     }
   }
   const handleClickWishList = async () => {
