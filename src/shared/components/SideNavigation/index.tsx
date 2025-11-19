@@ -19,7 +19,7 @@ const USER_SIDE_MENU = [
   },
   { label: '찜한 상품', path: ROUTE_PATHS.MYPAGE.WISH_LIST, icon: <LucideHeart /> },
   { label: '상품 후기', path: ROUTE_PATHS.MYPAGE.REVIEWS, icon: <LucideSquarePen /> },
-  { label: '회원정보 관리', path: '', icon: <LucideUserRoundCheck /> },
+  { label: '회원정보 관리', path: ROUTE_PATHS.MYPAGE.INFORMATION, icon: <LucideUserRoundCheck /> },
 ]
 
 const SELLER_SIDE_MENU = [

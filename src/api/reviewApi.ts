@@ -18,7 +18,7 @@ export default reviewApi
 
 const mockReviewList: ServerReviewType[] = [
   {
-    id: 1,
+    id: 10,
     comment: '상품이 너무 마음에 들어요!',
     like_count: 1,
     created_at: '2025-11-18T03:24:53.805Z',

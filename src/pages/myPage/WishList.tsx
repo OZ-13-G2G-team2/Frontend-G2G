@@ -4,11 +4,11 @@ import WishListContent from './WishListContent'
 
 const WishList = () => {
   const { data } = useWishList()
-  
+
   return (
     <MyPageContainer title="찜한 상품">
-      {data.map((wish, index) => (
-        <WishListContent key={index} data={wish} />
+      {data?.map((wish) => (
+        <WishListContent key={wish.id} data={wish} />
       ))}
     </MyPageContainer>
   )
