@@ -39,6 +39,7 @@ export const ROUTE_PATHS = {
   },
   EMAIL: {
     INDEX: '/email/certification',
+    CERTIFICATION: '/email/certification/:email',
   },
   PRODUCT_DETAIL: {
     TEMPLATE: '/product/:id',

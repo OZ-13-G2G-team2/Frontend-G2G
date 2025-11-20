@@ -1,5 +1,6 @@
 import UserSignIn from '@/components/signIn/UserSignIn'
 import EmailCertification from '@/components/signUp/emailCertification'
+import EmailCertificationAccess from '@/components/signUp/emailCertificationAccess'
 import ProducerCertification from '@/components/signUp/producerCertification'
 import ProducerSignUp from '@/components/signUp/producerSignUp'
 import UserSignUp from '@/components/signUp/userSignUp'
@@ -80,6 +81,10 @@ function AppRoutes() {
         <Route
           path={ROUTE_PATHS.EMAIL.INDEX}
           element={<EmailCertification />}
+        />
+        <Route
+          path={ROUTE_PATHS.EMAIL.CERTIFICATION}
+          element={<EmailCertificationAccess />}
         />
       </Route>
       <Route

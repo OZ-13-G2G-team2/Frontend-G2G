@@ -8,11 +8,11 @@ import PlusIcon from '@/assets/icons/plus.svg'
 import MinusIcon from '@/assets/icons/minus.svg'
 import { useUser } from '@/stores/userContext'
 import BackToLogin from '@/components/productDetail/backToLogin/BackToLogin'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 // import { getAccessToken } from '@/api/auth'
 // import { jwtDecode } from 'jwt-decode'
 // import type { UserJwtPayload } from '@/types/jwtPayload'
-import { cartAddApi } from '@/api/cartAddApi'
+// import { cartAddApi } from '@/api/cartAddApi'
 // import { addWishListApi } from '@/api/wishListApi'
 import MoveToCart from '@/components/productDetail/moveToCart/MoveToCart'
 import { ROUTE_PATHS } from '@/constants/route'
@@ -21,7 +21,7 @@ interface SummarizeDetailProps {
   item: Product
 }
 function SummarizeDetail({ item }: SummarizeDetailProps) {
-  const params = useParams()
+  // const params = useParams()
   const [count, setCount] = useState<number>(1)
   const { userType } = useUser()
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -29,7 +29,7 @@ function SummarizeDetail({ item }: SummarizeDetailProps) {
   const [selectedOption, setSelectedOption] = useState<string>('')
   const [selectedExtraPrice, setSelectedExtraPrice] = useState<number>(0)
   const [isCartMove, setIsCartMove] = useState(false)
-  const productId = Number(params.id)
+  // const productId = Number(params.id)
   const navigate = useNavigate()
   // const token = getAccessToken() ?? ''
   // const payload = jwtDecode<UserJwtPayload>(token)
@@ -41,7 +41,7 @@ function SummarizeDetail({ item }: SummarizeDetailProps) {
   const handleDelToCount = () => {
     if (count > 1) {
       setCount((prev) => prev - 1)
-      console.log(item?.images?.[0]?.image_url)
+      // console.log(item?.images?.[0]?.image_url)
     }
   }
   const handleCloseModal = () => {
@@ -53,18 +53,18 @@ function SummarizeDetail({ item }: SummarizeDetailProps) {
     if (userType === 'GUEST') {
       setIsModalOpen(true)
     } else {
-      try {
-        const cartInformation = {
-          // user_id: userId,
-          product_id: productId,
-          quantity: count,
-        }
-        const response = await cartAddApi.cartAdd(cartInformation)
-        setIsCartMove(true)
-        console.log(response)
-      } catch (err) {
-        console.log(err)
-      }
+      // try {
+      //   const cartInformation = {
+      //     // user_id: userId,
+      //     product_id: productId,
+      //     quantity: count,
+      //   }
+      // const response = await cartAddApi.cartAdd(cartInformation)
+      setIsCartMove(true)
+      // console.log(response)
+      // } catch (err) {
+      //   console.log(err)
+      // }
     }
   }
 
